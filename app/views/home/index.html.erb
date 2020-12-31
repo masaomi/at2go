@@ -1,2 +1,24 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>AT2GO</h1>
+
+Data source: Ensembl Plant, BioMart, Gene 49, TAIR10
+<ul>
+  <li> https://plants.ensembl.org/biomart/martview/3a3400581bfedefa884fa58f0ad03ebf</li>
+</ul>
+
+Attributes
+<ul>
+  <li>Gene stable ID</li>
+  <li>Transcript stable ID</li>
+  <li>GO domain</li>
+  <li>GO term name</li>
+  <li>GO term accession</li>
+  <li>GO term definition</li>
+  <li>Gene name</li>
+  <li>Gene description</li>
+</ul>
+
+<%= form_tag(:action => 'get_annotation') do %>
+  <%= text_area :parameters, :atids, :value => "test", rows: 30, cols: 50 %>
+  <br>
+  <%= submit_tag 'Submit'  %>
+<% end %>
