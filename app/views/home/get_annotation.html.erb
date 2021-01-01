@@ -1,3 +1,35 @@
-<h1>Home#get_annotation</h1>
-<p>Find me in app/views/home/get_annotation.html.erb</p>
+<h1>AT2GO Result</h1>
+
+<table border=1>
+  <tr>
+  <% @headers.each do |header| %>
+    <th><%= header %> </th>
+  <% end %>
+  </tr>
+  <% @genes.each do |gid, gene| %>
+    <tr>
+      <% @headers.each do |col| %>
+        <% if gene[col].class == Array %>
+          <% if col =~ /^GO/ %>
+            <td><%= gene[col].uniq.sort.map{|id| 
+              "<a href='http://amigo.geneontology.org/amigo/term/#{id}'>#{id}</a>"
+            }.join(", ").html_safe %></td>
+          <% elsif col =~ /ID/ %>
+            <td><%= gene[col].uniq.sort.map{|id| 
+              "<a href='https://www.arabidopsis.org/servlets/Search?type=general&search_action=detail&method=1&show_obsolete=F&name=#{id}&sub_type=gene&SEARCH_EXACT=4&SEARCH_CONTAINS=1'>#{id}</a>"
+            }.join(", ").html_safe %></td>
+          <% else %>
+            <td><%= gene[col].uniq.sort.join(", ") %></td>
+          <% end %>
+        <% else %>
+          <% if col =~ /ID/ %>
+            <td><%= link_to gene[col].to_s, "https://www.arabidopsis.org/servlets/Search?type=general&search_action=detail&method=1&show_obsolete=F&name=#{gene[col].to_s}&sub_type=gene&SEARCH_EXACT=4&SEARCH_CONTAINS=1" %></td>
+          <% else %>
+            <td><%= gene[col].to_s %></td>
+          <% end %>
+        <% end %>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
 

@@ -1,0 +1,6 @@
+<h1>AT2GO Result</h1>
+
+<%= form_tag(:action => 'get_annotation') do %>
+  <%= text_area :at2go, :result, :value => @csv, rows: 20, cols: 100 %>
+<% end %> 
+

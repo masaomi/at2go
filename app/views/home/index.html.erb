@@ -1,8 +1,9 @@
 <h1>AT2GO</h1>
 
-Data source: Ensembl Plant, BioMart, Gene 49, TAIR10
+Data source: Ensembl Plant, BioMart, Gene 49, TAIR10, (31, Dec, 2020)
 <ul>
-  <li> https://plants.ensembl.org/biomart/martview/3a3400581bfedefa884fa58f0ad03ebf</li>
+  <li> <%= link_to "https://plants.ensembl.org/biomart/martview/3a3400581bfedefa884fa58f0ad03ebf", "https://plants.ensembl.org/biomart/martview/3a3400581bfedefa884fa58f0ad03ebf" %></li>
+  <li> <%= link_to "BioMart_Ensembl_Plant_Gene_49_TAIR10.txt", "BioMart_Ensembl_Plant_Gene_49_TAIR10.txt" %></li>
 </ul>
 
 Attributes
@@ -17,8 +18,11 @@ Attributes
   <li>Gene description</li>
 </ul>
 
+<br>
+
 <%= form_tag(:action => 'get_annotation') do %>
-  <%= text_area :parameters, :atids, :value => "test", rows: 30, cols: 50 %>
+  <%= text_area :parameters, :atids, :value => "AT3G06080\nAT2G39830.1", rows: 20, cols: 50 %>
   <br>
-  <%= submit_tag 'Submit'  %>
+  <%= submit_tag 'HTML', :name => "html" %>
+  <%= submit_tag 'CSV', :name => "csv" %>
 <% end %>

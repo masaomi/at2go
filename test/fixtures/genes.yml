@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gid: MyString
+  tid: MyString
+  name: MyString
+  description: MyString
+  GO_domain: MyString
+  GO_term_name: MyString
+  GO_term_accession: MyString
+  GO_term_definition: MyString
+
+two:
+  gid: MyString
+  tid: MyString
+  name: MyString
+  description: MyString
+  GO_domain: MyString
+  GO_term_name: MyString
+  GO_term_accession: MyString
+  GO_term_definition: MyString
